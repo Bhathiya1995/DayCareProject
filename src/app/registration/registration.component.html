@@ -1,0 +1,55 @@
+<div class="bg-reg">
+    <div class="row">
+        <div class="card mb-5">
+            <h3 class="card-title text-center"> Registration Page</h3>
+            <div class="card-body text-center">
+                <p>Welcome to our page</p>
+            </div>
+            <form #signUpForm= "ngForm" class="mx-3 mb-3" (ngSubmit)="onSubmit(signUpForm)">
+                <div class="form-row">
+                    <!-- Parent Name input field  -->
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label for="inputParentName">Parent Name</label>
+                        <input type="text" name="parentName" #parentName = "ngModel" [(ngModel)] = "parentService.selectedParent.parentName" class="form-control" id="inputParentName" placeholder="Enter Parent Name" required>
+                    </div>
+                    <!-- NIC input field -->
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label for="inputNic">NIC</label>
+                        <input type="text" name="nic" #nic = "ngModel" [(ngModel)] = "parentService.selectedParent.nic" class="form-control" id="inputNic" placeholder="Enter NIC" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <!-- Address input field -->
+                    <div class="form-group col-md-12 col-sm-12">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" name="address" #address = "ngModel" [(ngModel)] = "parentService.selectedParent.address" class="form-control" id="inputAddress" placeholder="Enter Address" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <!-- Email input field -->
+                    <div class="form-group col-md-12 col-sm-12">
+                        <label for="inputEmail">E-mail</label>
+                        <input type="email" name="email" #email = "ngModel" [(ngModel)] = "parentService.selectedParent.email" class="form-control" id="inputEmail" placeholder="Enter Email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <!-- Password input field -->
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" name="password" #password = "ngModel" [(ngModel)] = "parentService.selectedParent.password" class="form-control" id="inputPassword" placeholder="Enter Password" required>
+                    </div>
+                    <!-- Re-enter Password input field -->
+                    <div class="form-group col-md-6 col-sm-12">
+                        <label for="inputRePassword">Re-Enter Password</label>
+                        <input type="password" name="rePassword" class="form-control" id="inputRePassword" placeholder="Re-Enter Password" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary float-right">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="success" *ngIf="showSuccessMessage">
+    Saved Successfully
+</div>

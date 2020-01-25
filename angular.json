@@ -67,7 +67,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "daycareApp:build:production"
+              "browserTarget": "daycareApp:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             }
           }
         },

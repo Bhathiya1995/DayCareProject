@@ -1,0 +1,33 @@
+<div class="bg-reg">
+    <div class="row">
+        <div class="card mb-5">
+            <h3 class="card-title text-center"> Login Page</h3>
+            <div class="card-body text-center">
+                <p>Welcome to our page</p>
+            </div>
+            <form #signUpForm= "ngForm" class="mx-3 mb-3" (ngSubmit)="onSubmit(signUpForm)">
+               
+                <div class="form-row">
+                    <!-- Email input field -->
+                    <div class="form-group col-md-12 col-sm-12">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" name="emali" class="form-control" id="inputEmail" placeholder="Enter Email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <!-- Password input field -->
+                    <div class="form-group col-md-12 col-sm-12">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" name="password"  class="form-control" id="inputPassword" placeholder="Enter Password">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary float-right">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="success" *ngIf="showSuccessMessage">
+    Saved Successfully
+</div>
