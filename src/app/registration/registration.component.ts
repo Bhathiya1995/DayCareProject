@@ -14,13 +14,18 @@ export class RegistrationComponent implements OnInit {
 
   showSuccessMessage: boolean;
   serverErrorMessages: string;
+  
 
   constructor(private parentService: ParentService) { }
 
   ngOnInit() {
   }
 
+  submitted = false;
+
   onSubmit(form: NgForm) {
+    this.submitted = true;
+
     this.parentService.postParent(form.value).subscribe(
       res => {
         console.log("Success")

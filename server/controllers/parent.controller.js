@@ -13,6 +13,7 @@ module.exports.register = (req, res, next) => {
     parent.address = req.body.address;
     parent.email = req.body.email;
     parent.password = hash;
+    parent.type = "parent";
     parent.status = 0;
 
     parent.save((err, doc) => {
@@ -31,8 +32,10 @@ module.exports.register = (req, res, next) => {
 module.exports.login = (req, res, next) => {
     Parent.findOne({email:req.body.email},(err, parentinfo) =>{
         if(err){
+            
             next(err);
         }else{
+            console.log(parentinfo.password);
             if(bcrypt.compareSync(req.body.password, parentinfo.password )){
                 const token = jwt.sign({id: parentinfo.id}, req.app.get('secretKey'), {expiresIn: '1h'});
                 res.json({status: "success", message: "User Found !!", data:{user: parentinfo, token: token}});

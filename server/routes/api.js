@@ -20,7 +20,8 @@ const ctrlParent = require('../controllers/parent.controller')
 //   }
 
 // const uri = "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false";
-const uri = "mongodb+srv://bhathiya:rom123456@daycare-mwzvz.mongodb.net/DayCare?authSource=admin&replicaSet=DayCare-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
+// const uri = "mongodb+srv://bhathiya:rom123456@daycare-mwzvz.mongodb.net/DayCare?authSource=admin&replicaSet=DayCare-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
+const uri = "mongodb+srv://piyumali:piyumali123456@daycare-r25si.mongodb.net/DayCare?retryWrites=true&w=majority";
 mongoose.Promise = global.Promise;
 mongoose.connect(uri, (err)=>{
     if (err) {

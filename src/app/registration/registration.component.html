@@ -1,55 +1,95 @@
 <div class="bg-reg">
     <div class="row">
-        <div class="card mb-5">
-            <h3 class="card-title text-center"> Registration Page</h3>
-            <div class="card-body text-center">
-                <p>Welcome to our page</p>
-            </div>
-            <form #signUpForm= "ngForm" class="mx-3 mb-3" (ngSubmit)="onSubmit(signUpForm)">
+        <div class="card mb-5 card-bg round">
+            <h3 class="card-title text-center title"> Registration Page</h3>
+
+            <p class="text-center">Welcome to our page</p>
+
+            <form #signUpForm="ngForm" class="mx-3 mb-3" (ngSubmit)="onSubmit(signUpForm)" [hidden]="submitted">
                 <div class="form-row">
                     <!-- Parent Name input field  -->
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="inputParentName">Parent Name</label>
-                        <input type="text" name="parentName" #parentName = "ngModel" [(ngModel)] = "parentService.selectedParent.parentName" class="form-control" id="inputParentName" placeholder="Enter Parent Name" required>
+                        <label for="inputParentName" class="text-white">Parent Name</label>
+                        <input type="text" name="parentName" #parentName="ngModel"
+                            [(ngModel)]="parentService.selectedParent.parentName" class="form-control"
+                            id="inputParentName" placeholder="Enter Parent Name" required>
+                        <div [hidden]="parentName.valid || parentName.pristine" class="alert alert-danger">
+                            Parent name is required
+                        </div>
+
                     </div>
                     <!-- NIC input field -->
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="inputNic">NIC</label>
-                        <input type="text" name="nic" #nic = "ngModel" [(ngModel)] = "parentService.selectedParent.nic" class="form-control" id="inputNic" placeholder="Enter NIC" required>
+                        <label for="inputNic" class="text-white">NIC</label>
+                        <input type="text" name="nic" #nic="ngModel" [(ngModel)]="parentService.selectedParent.nic"
+                            class="form-control" id="inputNic" placeholder="Enter NIC" required>
+                        <div class="invalid-feedback">
+                            <div>NIC is required</div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <!-- Address input field -->
                     <div class="form-group col-md-12 col-sm-12">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" name="address" #address = "ngModel" [(ngModel)] = "parentService.selectedParent.address" class="form-control" id="inputAddress" placeholder="Enter Address" required>
+                        <label for="inputAddress" class="text-white">Address</label>
+                        <input type="text" name="address" #address="ngModel"
+                            [(ngModel)]="parentService.selectedParent.address" class="form-control" id="inputAddress"
+                            placeholder="Enter Address" required>
+                        <div class="invalid-feedback">
+                            <div>Address is required</div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <!-- Email input field -->
                     <div class="form-group col-md-12 col-sm-12">
-                        <label for="inputEmail">E-mail</label>
-                        <input type="email" name="email" #email = "ngModel" [(ngModel)] = "parentService.selectedParent.email" class="form-control" id="inputEmail" placeholder="Enter Email" required>
+                        <label for="inputEmail" class="text-white">E-mail</label>
+                        <input type="email" name="email" #email="ngModel"
+                            [(ngModel)]="parentService.selectedParent.email" class="form-control" id="inputEmail"
+                            placeholder="Enter Email" required>
+                        <div class="invalid-feedback">
+                            <div>Email is required</div>
+                            <div>Email must be a valid email address</div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <!-- Password input field -->
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="inputPassword">Password</label>
-                        <input type="password" name="password" #password = "ngModel" [(ngModel)] = "parentService.selectedParent.password" class="form-control" id="inputPassword" placeholder="Enter Password" required>
+                        <label for="inputPassword" class="text-white">Password</label>
+                        <input type="password" name="password" #password="ngModel"
+                            [(ngModel)]="parentService.selectedParent.password" class="form-control" id="inputPassword"
+                            placeholder="Enter Password" required>
+                        <div class="invalid-feedback">
+                            <div>Password is required</div>
+                            <div>Password must be at least 6 characters</div>
+                        </div>
                     </div>
                     <!-- Re-enter Password input field -->
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="inputRePassword">Re-Enter Password</label>
-                        <input type="password" name="rePassword" class="form-control" id="inputRePassword" placeholder="Re-Enter Password" required>
+                        <label for="inputRePassword" class="text-white">Re-Enter Password</label>
+                        <input type="password" name="rePassword" class="form-control" id="inputRePassword"
+                            placeholder="Re-Enter Password" required>
+                        <div class="invalid-feedback">
+                            <div>Re-enter password is required</div>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary float-right">Sign Up</button>
+                <button [disabled]="!signUpForm.form.valid" type="submit" class="btn submit-btn float-right">Sign
+                    Up</button>
             </form>
+            <div [hidden]="!submitted" class="mx-5 my-5">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading"> <i class="far fa-thumbs-up"></i> Congratulations !!</h4>
+                    <p>Thank you. You successfully completed your registration process. You can log in to DayCare after
+                        coupel of minutes </p>
+                    <hr>
+                    <p>Use email as your usernmae and the password that you given</p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<div class="success" *ngIf="showSuccessMessage">
-    Saved Successfully
+
+
+    </div>
 </div>

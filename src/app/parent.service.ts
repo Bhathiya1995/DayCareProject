@@ -25,4 +25,6 @@ export class ParentService {
     return this.http.post(environment.apiBaseUrl+ '/register', parent);
 
   }
+
+  
 }

@@ -10,6 +10,7 @@ const parentSchema = new Schema({
     address: String,
     email: String,
     password: String,
+    type: String,
     status: Number
     
 });
